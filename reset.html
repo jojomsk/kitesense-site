@@ -36,7 +36,6 @@
             const params = new URLSearchParams(window.location.search);
             const tokenHash = params.get('token_hash');
             const type = params.get('type') || 'recovery';
-            const redirectTo = params.get('redirect_to') || 'https://kitesense.ru';
 
             if (!tokenHash) {
                 const err = document.getElementById('errorMsg');
@@ -44,6 +43,11 @@
                 err.style.display = 'block';
                 return;
             }
+
+            // v2.3.38: редиректим на КАСТОМНУЮ схему приложения.
+            // Supabase проверит токен и отправит пользователя на kitesense://reset-password#access_token=...
+            // Приложение поймает это через intent-filter и откроет экран смены пароля.
+            const redirectTo = 'kitesense://reset-password';
 
             const url = 'https://akugwjdpifenvzirjsqi.supabase.co/auth/v1/verify?'
                 + 'token_hash=' + encodeURIComponent(tokenHash)
