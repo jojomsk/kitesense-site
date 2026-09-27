@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.kitesense.app",
+      "sha256_cert_fingerprints": [
+        "D3:44:EA:E7:30:5A:63:AE:E3:82:77:39:01:ED:7B:55:E5:86:24:5E:75:44:91:AF:49:82:47:DF:8D:E8:07:52"
+      ]
+    }
+  }
+]
